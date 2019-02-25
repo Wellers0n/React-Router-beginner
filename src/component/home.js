@@ -7,7 +7,7 @@ const Home = ({history}) => {
             <div>
                 <h1>home</h1>
                 <Link to={'/homeIn'}>aqui irá abrir dentro so home</Link>
-                <Route path="/homeIn" component={HomeIn}/>
+                <Route path="/homeIn" render={() => <HomeIn history={history}/>}/>
             </div>
         </BrowserRouter>
 
@@ -16,13 +16,15 @@ const Home = ({history}) => {
 
 const HomeIn = ({history}) => {
     return (
-        <div>
-            <h1>dentro do Home</h1>
-            <button onClick={(e) => {
-                e.preventDefault()
-                return history.push('/sobre')
-                }}>Ir ao sobre</button>
-        </div>
+            <div>
+                <h1>dentro do Home</h1>
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    return history.push('/sobre')
+                    }}>Ir ao sobre</button>
+            </div>
+
+
     )
 }
 export default Home
